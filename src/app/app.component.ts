@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {StaticCompoentComponent} from './components/static-compoent/static-compoent.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FactoryStuff';
+  dynComp = StaticCompoentComponent;
 }
