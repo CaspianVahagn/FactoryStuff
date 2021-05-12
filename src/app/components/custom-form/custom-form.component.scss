@@ -1,0 +1,18 @@
+
+
+.error{
+  outline: red solid 1px;
+}
+
+.custom-form{
+  display: grid;
+  gap: 1rem;
+  div{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    input[type=text]{
+      height: 1.6rem;
+      padding: 0.3rem;
+    }
+  }
+}

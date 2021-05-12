@@ -1,0 +1,49 @@
+<p>stepper-forms works!</p>
+<mat-horizontal-stepper linear #stepper style="max-width: 50%;">
+  <mat-step [stepControl]="masterDataGroup" [editable]="isEditable">
+    <!--    Here beginns a form -->
+    <form #form1 (ngSubmit)="stepper.next();persistPayer(MasterData)" [formGroup]="masterDataGroup">
+      <app-custom-form [masterData]="MasterData"></app-custom-form>
+      <input
+         #formsub
+        id="hiddenSubmit"
+        type="submit"
+        style="display: none;">
+    </form>
+    <!--    Here ends a form -->
+  </mat-step>
+  <mat-step [stepControl]="concatFormGroup" [editable]="isEditable">
+    <!--    Here beginns a form -->
+    <form [formGroup]="concatFormGroup" (ngSubmit)="stepper.next()">
+      <h3> Main</h3>
+      <app-custom-form [masterData]="TravelPersonData"></app-custom-form>
+      <h3>Secondary</h3>
+        <app-custom-form [masterData]="SecondPersonData"></app-custom-form>
+        <button (click)="stepper.previous()">Back</button>
+      <label for="hiddenSubmit2">
+        <button >Next</button>
+      </label>
+      <input type="submit" id="hiddenSubmit2" style="display: none;">
+    </form>
+    <!--    Here ends a form -->
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div style="background: aliceblue;padding: 1rem;">
+      {{concatFormGroup.get("main")!.value|json}}
+    </div>
+    <div style="background: azure;padding: 1rem;">
+      {{concatFormGroup.get("sec")!.value |json}}
+    </div>
+    <div style="background: lightpink;padding: 1rem;">
+      {{masterDataGroup.value |json}}
+    </div>
+    <div>
+      <button mat-button (click)="stepper.previous()">Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
+
+<button (click)="formsub.click()">hidden stuff</button>

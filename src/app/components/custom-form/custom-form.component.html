@@ -1,0 +1,19 @@
+<div class="custom-form">
+  <div><span>Name</span>
+    <input [formControl]="masterData.name"
+           [value]="masterData.name.value"
+           [class.error]="masterData.name.invalid && masterData.name.touched"
+           type="text"></div>
+  <div><span>Lastname</span>
+    <input [formControl]="masterData.lastName"
+           [value]="masterData.lastName.value"
+           [class.error]="masterData.lastName.invalid && masterData.lastName.touched" type="text"></div>
+  <div><span>Age</span>
+    <input [formControl]="masterData.age"
+           [value]="masterData.age.value"
+           [class.error]="masterData.age.invalid && masterData.age.touched" type="text"></div>
+  <div><span>Email</span>
+    <input [formControl]="masterData.email"
+           [value]="masterData.email.value"
+           [class.error]="masterData.email.invalid && masterData.name.touched" type="text"></div>
+</div>
